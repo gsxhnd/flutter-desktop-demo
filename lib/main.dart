@@ -62,8 +62,8 @@ class MyHomePage extends StatefulWidget {
 
 typedef get_key_func = ffi.Pointer<Utf8> Function(); // FFI fn signature
 typedef GetKey = ffi.Pointer<Utf8> Function(); // Dart fn signature
-var libraryPath = path.join(Directory.current.path, 'libgo', 'linux', 'lib.a');
-final dylib = ffi.DynamicLibrary.open(libraryPath);
+// var libraryPath = path.join(Directory.current.path, 'libgo', 'linux', 'lib.a');
+final dylib = ffi.DynamicLibrary.open("lib/library/linux/lib.a");
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
@@ -83,7 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _openFolder() async {
-    print(libraryPath);
     const String confirmButtonText = 'Choose';
     final String? directoryPath = await getDirectoryPath(
       confirmButtonText: confirmButtonText,
